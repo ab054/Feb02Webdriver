@@ -47,6 +47,19 @@ public class FirstClass {
     }
 
     @Test
+    public void testMethods() {
+        String messagePrefix = "I tapped on the screen ";
+        int numberOfClicks = 10;
+        String messageSuffix = " times ";
+
+        combineStringsAndNumber(messagePrefix, messageSuffix, numberOfClicks);
+    }
+
+    public void combineStringsAndNumber(String prefix, String suffix, int numberOfTimes){
+        System.out.println(prefix + numberOfTimes + suffix);
+    }
+
+    @Test
     public void testBoolean() {
         boolean b = true;
         boolean toBe = false;
@@ -82,5 +95,17 @@ public class FirstClass {
             System.out.println(arrayOfIntegers[i]);
         }
 
+    }
+
+    @Test
+    public void testArrays02() {
+        int[] arrayOfIntegers = {34, 23434, 34343, 443434};
+        printValuesOfArray(arrayOfIntegers);
+    }
+
+    public void printValuesOfArray(int[] inputArray){
+        for(int i = 0; i < inputArray.length; i++){
+            System.out.println(inputArray[i]);
+        }
     }
 }
