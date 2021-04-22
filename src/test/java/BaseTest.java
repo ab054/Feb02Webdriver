@@ -1,0 +1,14 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeSuite;
+
+public class BaseTest {
+
+    WebDriver driver;
+
+    @BeforeSuite
+    public void suiteSetup(){
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/macOS/geckodriver");
+        driver = new FirefoxDriver();
+    }
+}

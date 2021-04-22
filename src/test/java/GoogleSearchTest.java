@@ -9,12 +9,10 @@ import org.testng.annotations.Test;
 
 import static java.lang.Thread.sleep;
 
-public class GoogleSearchTest {
+public class GoogleSearchTest extends BaseTest {
 
     private static final String GOOGLE_MAIN_PAGE_URL = "https://www.google.com/";
-    WebDriver driver;
 
-    
     //1. open browser
     //2. go to Google main page
     //3. type search query
@@ -22,7 +20,6 @@ public class GoogleSearchTest {
     //5. verify Results Page is opened
     @Test
     public void test0001() {
-        openBrowser();
         goToMainPage();
         typeSearchQuery();
         submitQuery();
@@ -64,10 +61,5 @@ public class GoogleSearchTest {
 
     private void goToMainPage() {
         driver.get(GOOGLE_MAIN_PAGE_URL);
-    }
-
-    private void openBrowser() {
-        System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/macOS/geckodriver");
-        driver = new FirefoxDriver();
     }
 }
