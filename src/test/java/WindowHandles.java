@@ -51,8 +51,8 @@ public class WindowHandles extends BaseTest {
     private void verifyAmountWindows() {
         Set<String> windowHandles = driver.getWindowHandles();
         int actual = windowHandles.size();
-        int expectedNUmber = 2;
-        Assert.assertEquals(actual, expectedNUmber);
+        int expectedNumber = 2;
+        Assert.assertEquals(actual, expectedNumber);
     }
 
     private void clickOnLink() {
