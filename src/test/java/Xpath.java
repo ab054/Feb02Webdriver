@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import uiTests.BaseTest;
 
 public class Xpath extends BaseTest {
 

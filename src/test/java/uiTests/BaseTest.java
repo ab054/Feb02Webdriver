@@ -1,10 +1,12 @@
+package uiTests;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
 
-    WebDriver driver;
+    public WebDriver driver;
 
     @BeforeSuite
     public void suiteSetup(){

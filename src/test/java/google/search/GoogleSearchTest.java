@@ -1,11 +1,12 @@
+package google.search;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import uiTests.BaseTest;
 
 import static java.lang.Thread.sleep;
 
@@ -18,7 +19,7 @@ public class GoogleSearchTest extends BaseTest {
     //3. type search query
     //4. submit query
     //5. verify Results Page is opened
-    @Test
+    @Test(groups = "brokenTests")
     public void test0001() {
         goToMainPage();
         typeSearchQuery();
