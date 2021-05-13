@@ -1,5 +1,6 @@
 package google.search;
 
+import google.search.pages.MainPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +13,6 @@ import static java.lang.Thread.sleep;
 
 public class GoogleSearchTest extends BaseTest {
 
-    private static final String GOOGLE_MAIN_PAGE_URL = "https://www.google.com/";
 
     //1. open browser
     //2. go to Google main page
@@ -21,9 +21,13 @@ public class GoogleSearchTest extends BaseTest {
     //5. verify Results Page is opened
     @Test(groups = "brokenTests")
     public void test0001() {
-        goToMainPage();
-        typeSearchQuery();
-        submitQuery();
+        MainPage mainPage = new MainPage(driver);
+        ResultsPage resultsPage = new ResultPage(driver);
+
+        mainPage.open();
+        mainPage.typeSearchQuery("Portnov Computer School");
+        mainPage.submitQuery();
+
         //waitFor(5);
         waitForElement();
         verifyResultsPage();
@@ -34,33 +38,9 @@ public class GoogleSearchTest extends BaseTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("result-stats")));
     }
 
-    private void waitFor(int numberOfSeconds) {
-        try {
-            sleep(numberOfSeconds * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void verifyResultsPage() {
         WebElement element = driver.findElement(By.id("result-stats"));
         boolean displayed = element.isDisplayed();
         Assert.assertEquals(displayed, true);
-    }
-
-    private void submitQuery() {
-        driver.findElement(By.name("q")).submit();
-    }
-
-    private void typeSearchQuery() {
-        By searchInputElement = By.name("q");
-        WebElement element = driver.findElement(searchInputElement);
-        element.sendKeys("Portnov Computer School");
-
-        //driver.findElement(By.name("q")).sendKeys("Portnov Computer School");
-    }
-
-    private void goToMainPage() {
-        driver.get(GOOGLE_MAIN_PAGE_URL);
     }
 }
